@@ -1,0 +1,20 @@
+---
+title: "Google Map"
+format: 
+  html: 
+    embedded-resources: true
+---
+
+```{r}
+d <- read.csv(file = "C:/Users/naruk/git_test/promana3_test/test.csv")
+d
+
+if (!require(leaflet)) install.packages('leaflet')
+
+leaflet() |> addTiles() |> 
+  addMarkers(lng = d$lng, lat = d$lat, popup = paste0(d$name, '<br>', d$address)) |> 
+  addMiniMap(positio = 'topright') |>
+  addScaleBar(position = "bottomleft")
+```
+
+
